@@ -1,0 +1,51 @@
+<html>
+	<head>
+
+	</head>
+	<script>
+	 function Login()
+	 {
+			var login = "{'name':'user','password':'admin123'}";
+			var url = "http://Localhost:3000/Autenticate";
+			console.log("Autenticando");
+			//  var params = "user=" + members.User.value + "&password=" + members.Password.value + "&remember=" + members.RememberMe.checked;
+			var http = new XMLHttpRequest();
+
+			http.open("POST", url, true);
+			http.setRequestHeader("Content-type", "application/json");
+			http.send(login);
+			http.onreadystatechange = function () {
+				if (http.readyState == 4 && http.status == 200) {
+
+					  console.log(http.responseText);
+					if (http.responseText == "false") {
+					  
+
+					}
+					else {
+					
+
+					}
+			}
+			//http.send(null);
+		}
+	 }
+	</script>
+	<body>
+		<div>
+		<table>
+			<tr>
+				<td> Usuario :</td>
+				<td> <input type="text" ></td>
+			</tr>
+			<tr>
+				<td> Password :</td>
+				<td><input type="Password" ></td>
+			</tr>
+			<tr>
+				<td> <button onClick="Login();"> Login </button> </td>
+			</tr>
+		</table>
+		</div>
+	</body>
+</html>
