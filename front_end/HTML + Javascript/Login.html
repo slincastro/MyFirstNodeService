@@ -32,11 +32,14 @@
 	 }
 	</script>
 	<style>
+		body{
+			background-color: #eee;
+		}
 		.loginForm{
 			position:absolute;
 			background-color: #000;
 			color:#fff;
-			width:300px;
+			width:250px;
 			height: 60px;
 			left:50%;
 			margin-left: -150px;
@@ -44,6 +47,7 @@
 			margin-top: -50px;
 			padding: 30px;
 			border-radius: 3px;
+			box-shadow: 5px 5px 5px #333;
 		}
 
 		button{
@@ -69,12 +73,12 @@
 		<table>
 			<tr>
 				
-				<td> <input type="text" ></td>
+				<td> <input type="text" placeholder="Usuario"></td>
 				<td rowspan="2"> <button onClick="Login();"> Login </button> </td>
 			</tr>
 			<tr>
 				
-				<td><input type="Password" ></td>
+				<td><input type="Password" placeholder="Password"></td>
 			</tr>
 			<tr>
 				
