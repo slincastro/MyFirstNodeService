@@ -8,9 +8,10 @@
 			var login = "{'name':'user','password':'admin123'}";
 			var url = "http://Localhost:3000/Autenticate";
 			console.log("Autenticando");
+			
 			//  var params = "user=" + members.User.value + "&password=" + members.Password.value + "&remember=" + members.RememberMe.checked;
 			var http = new XMLHttpRequest();
-
+			//http.withCredentials =true;
 			http.open("POST", url, true);
 			http.setRequestHeader("Content-type", "application/json");
 			http.send(login);
