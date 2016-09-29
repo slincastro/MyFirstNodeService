@@ -31,19 +31,53 @@
 		}
 	 }
 	</script>
+	<style>
+		.loginForm{
+			position:absolute;
+			background-color: #000;
+			color:#fff;
+			width:300px;
+			height: 60px;
+			left:50%;
+			margin-left: -150px;
+			top:50%;
+			margin-top: -50px;
+			padding: 30px;
+			border-radius: 3px;
+		}
+
+		button{
+			border:solid 1px #fff;
+			background-color: #000;
+			color:#fff;
+			font-size: large;
+			padding:10px 20px 10px 20px;
+			border-radius: 3px;
+		}
+
+		button:hover{	
+
+			border:solid 1px #000;
+			background-color: #eee;
+			color:#000;
+			font-size: large;
+			padding:10px 20px 10px 20px;
+		}
+	</style>
 	<body>
-		<div>
+		<div class ="loginForm">
 		<table>
 			<tr>
-				<td> Usuario :</td>
+				
 				<td> <input type="text" ></td>
+				<td rowspan="2"> <button onClick="Login();"> Login </button> </td>
 			</tr>
 			<tr>
-				<td> Password :</td>
+				
 				<td><input type="Password" ></td>
 			</tr>
 			<tr>
-				<td> <button onClick="Login();"> Login </button> </td>
+				
 			</tr>
 		</table>
 		</div>
