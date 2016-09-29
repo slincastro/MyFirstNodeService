@@ -60,13 +60,24 @@ app.post('/login', function(req, res) {
 var account;
 var entity = require('./Entity/Entities.js');
 
+app.post('/test',function(req,res){
+
+	var user = req.body.user;
+    
+	res.send("Hi " + user + " !!");
+						
+
+})
+
 app.post('/Autenticate',function(req,res){
   
 	var user = req.body.user;
     var password = req.body.password;
 
 	account=new entity(user,password);
-
+    
+    console.log("test...........");
+	
 	var MongoClient = require('mongodb').MongoClient;
 
 	MongoClient.connect("mongodb://localhost:27017/test_user", function(err, db) {
