@@ -61,7 +61,7 @@ var account;
 var entity = require('./Entity/Entities.js');
 
 app.post('/test',function(req,res){
-
+//res.header("Access-Control-Allow-Origin", "*");
 	var user = req.body.user;
     
 	res.send("Hi " + user + " !!");

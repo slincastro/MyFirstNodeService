@@ -5,14 +5,18 @@
 	<script>
 	 function Test()
 	 {
-			var login = "{'name':'user','password':'admin123'}";
-			var url = "http://Localhost:3000/Autenticate";
-			console.log("Autenticando");
+			var login = "{'name':'user'}";
+			var url = "http://Localhost:3000/test";
+			
+			console.log("Test");
 			
 			//  var params = "user=" + members.User.value + "&password=" + members.Password.value + "&remember=" + members.RememberMe.checked;
 			var http = new XMLHttpRequest();
 			//http.withCredentials =true;
+			
 			http.open("POST", url, true);
+			http.setRequestHeader("Access-Control-Allow-Origin", "*");
+			
 			http.setRequestHeader("Content-type", "application/json");
 			http.send(login);
 			http.onreadystatechange = function () {
@@ -31,6 +35,30 @@
 			//http.send(null);
 		}
 	 }
+	 
+	 function Test1()
+	 {
+		var data = JSON.stringify({
+		  "user": "Slin"
+		});
+
+		var xhr = new XMLHttpRequest();
+		//xhr.withCredentials = true;
+
+		xhr.addEventListener("readystatechange", function () {
+		  if (this.readyState === 4) {
+			alert(this.responseText);
+		  }
+		});
+
+		xhr.open("POST", "http://localhost:3000/test");
+		xhr.setRequestHeader("content-type", "application/json");
+		//xhr.setRequestHeader("cache-control", "no-cache");
+		//xhr.setRequestHeader("postman-token", "1e0c8422-325c-462c-5c07-be671f89ef9f");
+
+		xhr.send(data);
+	 }
+	 
 	</script>
 	<style>
 		body{
@@ -76,7 +104,7 @@
 			<tr>
 				
 				
-				<td rowspan="2"> <button onClick="Login();"> Test </button> </td>
+				<td rowspan="2"> <button onClick="Test1();"> Test </button> </td>
 			</tr>
 			
 			<tr>
