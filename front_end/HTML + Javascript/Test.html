@@ -1,0 +1,88 @@
+<html>
+	<head>
+
+	</head>
+	<script>
+	 function Test()
+	 {
+			var login = "{'name':'user','password':'admin123'}";
+			var url = "http://Localhost:3000/Autenticate";
+			console.log("Autenticando");
+			
+			//  var params = "user=" + members.User.value + "&password=" + members.Password.value + "&remember=" + members.RememberMe.checked;
+			var http = new XMLHttpRequest();
+			//http.withCredentials =true;
+			http.open("POST", url, true);
+			http.setRequestHeader("Content-type", "application/json");
+			http.send(login);
+			http.onreadystatechange = function () {
+				if (http.readyState == 4 && http.status == 200) {
+
+					  console.log(http.responseText);
+					if (http.responseText == "false") {
+					  
+
+					}
+					else {
+					
+
+					}
+			}
+			//http.send(null);
+		}
+	 }
+	</script>
+	<style>
+		body{
+			background-color: #eee;
+		}
+		.loginForm{
+			position:absolute;
+			background-color: #000;
+			color:#fff;
+			width:80px;
+			height: 50px;
+			left:50%;
+			margin-left: -150px;
+			top:50%;
+			margin-top: -50px;
+			padding: 30px;
+			border-radius: 3px;
+			box-shadow: 5px 5px 5px #333;
+		}
+
+		button{
+			pointer:cursor;
+			border:solid 1px #fff;
+			background-color: #000;
+			color:#fff;
+			font-size: large;
+			padding:10px 20px 10px 20px;
+			border-radius: 3px;
+		}
+
+		button:hover{	
+
+			border:solid 1px #000;
+			background-color: #eee;
+			color:#000;
+			font-size: large;
+			padding:10px 20px 10px 20px;
+		}
+	</style>
+	<body>
+		<div class ="loginForm">
+		<table>
+			<tr>
+				
+				
+				<td rowspan="2"> <button onClick="Login();"> Test </button> </td>
+			</tr>
+			
+			<tr>
+				
+			</tr>
+		</table>
+		</div>
+	</body>
+</html>
