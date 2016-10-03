@@ -61,6 +61,19 @@
 	 
 	</script>
 	<style>
+	.path {
+	  stroke-dasharray: 1000;
+	  stroke-dashoffset: 1000;
+	  animation: dash 5s linear;
+	  stroke:#000;
+	  stroke-width:4;
+	}
+	@keyframes dash {
+	  to {
+		stroke-dashoffset: 0;
+	  }
+	}
+	
 		body{
 			background-color: #eee;
 		}
@@ -99,7 +112,13 @@
 		}
 	</style>
 	<body>
+	
+		<svg height="15" width="500">
+		  <line class="path" x1="0" y1="10" x2="500" y2="10" />
+		</svg>
+	
 		<div class ="loginForm">
+			
 		<table>
 			<tr>
 				
@@ -112,5 +131,7 @@
 			</tr>
 		</table>
 		</div>
+		
+		
 	</body>
 </html>
