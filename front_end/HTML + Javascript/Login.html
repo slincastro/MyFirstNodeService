@@ -5,32 +5,30 @@
 	<script>
 	 function Login()
 	 {
-			var login = "{'name':'user','password':'admin123'}";
+	 	var data =JSON.stringify({
+	 		'user':'admin',
+	 		'password':'admin123'
+	 	});
+			
 			var url = "http://Localhost:3000/Autenticate";
 			console.log("Autenticando");
 			
-			//  var params = "user=" + members.User.value + "&password=" + members.Password.value + "&remember=" + members.RememberMe.checked;
-			var http = new XMLHttpRequest();
-			//http.withCredentials =true;
-			http.open("POST", url, true);
-			http.setRequestHeader("Content-type", "application/json");
-			http.send(login);
-			http.onreadystatechange = function () {
-				if (http.readyState == 4 && http.status == 200) {
+			var xhr = new XMLHttpRequest();
+		
 
-					  console.log(http.responseText);
-					if (http.responseText == "false") {
-					  
+		xhr.addEventListener("readystatechange", function () {
+		  if (this.readyState === 4) {
+			alert(this.responseText);
+		  }
+		});
 
-					}
-					else {
-					
+		xhr.open("POST", url);
+		xhr.setRequestHeader("content-type", "application/json");
+		
 
-					}
-			}
-			//http.send(null);
-		}
-	 }
+		xhr.send(data);
+	}
+	 
 	</script>
 	<style>
 		body{

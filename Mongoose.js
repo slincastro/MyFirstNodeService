@@ -74,7 +74,7 @@ app.post('/Autenticate',function(req,res){
 	var user = req.body.user;
     var password = req.body.password;
 
-	account=new entity(user,password);
+	//account=new entity(user,password);
     
     console.log("test...........");
 	
@@ -98,11 +98,11 @@ app.post('/Autenticate',function(req,res){
 			.each(function(err, doc) {
 				if(doc){
 
-				console.log(doc.name +" - "+account.UserName);
+				console.log(doc.name +" - "+user);
 				
 					if(doc.name)
 					{
-						if(doc.name==account.UserName )
+						if(doc.name==user )
 						{
 							res.send(true);
 						}else
