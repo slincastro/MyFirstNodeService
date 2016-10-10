@@ -86,6 +86,8 @@ app.post('/Autenticate',function(req,res){
    
 	db.collection('user', function(err, collection) {
    
+   	var response = false;
+
 		if (err) {
 			throw err;
 		} else {
@@ -104,14 +106,25 @@ app.post('/Autenticate',function(req,res){
 					{
 						if(doc.name==user )
 						{
-							res.send(true);
-						}else
-						{
-							res.send(false);
+							console.log(doc.password +" - "+password);
+							if(doc.password==password)
+							{
+								response=true;	
+								return;		
+							}
+							
 						}
+
 					}
+
+					
 				}
+
+				console.log(response);
 			})
+			console.log("respondiendo.............."+response);
+			console.log(response);
+			res.send(response);
 		}
 		});
 	}

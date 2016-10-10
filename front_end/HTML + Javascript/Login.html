@@ -3,11 +3,21 @@
 
 	</head>
 	<script>
+	function GetTextControl(controlID)
+	{
+		var contentControl=document.getElementById(controlID).value;
+
+		console.log(contentControl);
+
+		return contentControl; 
+	}
+
 	 function Login()
 	 {
+
 	 	var data =JSON.stringify({
-	 		'user':'admin',
-	 		'password':'admin123'
+	 		'user':GetTextControl('txtUser'),
+	 		'password':GetTextControl('txtPassword')
 	 	});
 			
 			var url = "http://Localhost:3000/Autenticate";
@@ -18,6 +28,7 @@
 
 		xhr.addEventListener("readystatechange", function () {
 		  if (this.readyState === 4) {
+		  	console.log(this.responseText);
 			alert(this.responseText);
 		  }
 		});
@@ -72,12 +83,12 @@
 		<table>
 			<tr>
 				
-				<td> <input type="text" placeholder="Usuario"></td>
+				<td> <input id ="txtUser" type="text" placeholder="Usuario"></td>
 				<td rowspan="2"> <button onClick="Login();"> Login </button> </td>
 			</tr>
 			<tr>
 				
-				<td><input type="Password" placeholder="Password"></td>
+				<td><input id ="txtPassword" type="Password" placeholder="Password"></td>
 			</tr>
 			<tr>
 				
