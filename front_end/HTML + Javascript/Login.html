@@ -28,8 +28,17 @@
 
 		xhr.addEventListener("readystatechange", function () {
 		  if (this.readyState === 4) {
-		  	console.log(this.responseText);
-			alert(this.responseText);
+		  	var response = JSON.parse(this.responseText)
+
+		  	if(response.length>0)
+		  	{
+		  		alert("Autenticado");
+		  	}
+		  	else
+		  	{
+		  		alert("Usuario o password incorrecto")
+		  	}
+
 		  }
 		});
 
@@ -49,15 +58,20 @@
 			position:absolute;
 			background-color: #000;
 			color:#fff;
-			width:250px;
-			height: 60px;
+			width:550px;
+			height: 50px;
 			left:50%;
-			margin-left: -150px;
+			margin-left: -275px;
 			top:50%;
 			margin-top: -50px;
 			padding: 30px;
 			border-radius: 3px;
 			box-shadow: 5px 5px 5px #333;
+		}
+
+		.loginForm table td
+		{
+			padding-right: 20px;
 		}
 
 		button{
@@ -77,22 +91,25 @@
 			font-size: large;
 			padding:10px 20px 10px 20px;
 		}
+
+		.inputLogin{
+			font-size: large;
+			width:200px;
+			
+			border-radius: 3px;
+			padding:10px 10px 10px 20px;
+		}
 	</style>
 	<body>
 		<div class ="loginForm">
 		<table>
 			<tr>
 				
-				<td> <input id ="txtUser" type="text" placeholder="Usuario"></td>
+				<td> <input class="inputLogin" id ="txtUser" type="text" placeholder="Usuario"></td>
+				<td><input class="inputLogin" id ="txtPassword" type="Password" placeholder="Password"></td>
 				<td rowspan="2"> <button onClick="Login();"> Login </button> </td>
 			</tr>
-			<tr>
-				
-				<td><input id ="txtPassword" type="Password" placeholder="Password"></td>
-			</tr>
-			<tr>
-				
-			</tr>
+			
 		</table>
 		</div>
 	</body>
