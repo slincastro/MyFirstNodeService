@@ -131,6 +131,48 @@ app.post('/Autenticate',function(req,res){
 });
 })
 
+app.post('/Autenticate2',function(req,res){
+  
+	var user = req.body.user;
+    var password = req.body.password;
+
+	//account=new entity(user,password);
+    
+    console.log("test...........2");
+	
+	var MongoClient = require('mongodb').MongoClient;
+
+	MongoClient.connect("mongodb://localhost:27017/test_user", function(err, db) {
+
+	
+	  console.log("conecting db....");
+	  findUser(user,password,db, function(status) {
+	      db.close();
+	      res.send(status);
+	      /*if(status){
+	      	res.send(status);
+	      	return;
+	      }*/
+	      
+	  });
+
+	  
+	});
+});
+
+
+
+var findUser = function(username,password,db, callback) {
+   
+   var cursor =db.collection('user').find( { "name": username ,"password":password} );
+
+   cursor.toArray(function(err, items) {
+                 console.log(items);
+                 callback(items);
+             });
+
+};
+
 
 app.post('/AutenticateII',function(req,res){
 
